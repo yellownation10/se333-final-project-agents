@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JavaVersion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Commons Lang (SE333)</a> &gt; <a href="index.source.html" class="el_package">org.apache.commons.lang3</a> &gt; <span class="el_source">JavaVersion.java</span></div><h1>JavaVersion.java</h1><pre class="source lang-java linenums">/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.lang3;
+
+/**
+ * &lt;p&gt;An enum representing all the versions of the Java specification.
+ * This is intended to mirror available values from the
+ * &lt;em&gt;java.specification.version&lt;/em&gt; System property. &lt;/p&gt;
+ *
+ * @since 3.0
+ * @version $Id: $
+ */
+<span class="fc" id="L27">public enum JavaVersion {</span>
+    
+    /**
+     * The Java version reported by Android. This is not an official Java version number.
+     */
+<span class="fc" id="L32">    JAVA_0_9(1.5f, &quot;0.9&quot;),</span>
+    
+    /**
+     * Java 1.1.
+     */
+<span class="fc" id="L37">    JAVA_1_1(1.1f, &quot;1.1&quot;),</span>
+
+    /**
+     * Java 1.2.
+     */
+<span class="fc" id="L42">    JAVA_1_2(1.2f, &quot;1.2&quot;),</span>
+
+    /**
+     * Java 1.3.
+     */
+<span class="fc" id="L47">    JAVA_1_3(1.3f, &quot;1.3&quot;),</span>
+
+    /**
+     * Java 1.4.
+     */
+<span class="fc" id="L52">    JAVA_1_4(1.4f, &quot;1.4&quot;),</span>
+
+    /**
+     * Java 1.5.
+     */
+<span class="fc" id="L57">    JAVA_1_5(1.5f, &quot;1.5&quot;),</span>
+
+    /**
+     * Java 1.6.
+     */
+<span class="fc" id="L62">    JAVA_1_6(1.6f, &quot;1.6&quot;),</span>
+
+    /**
+     * Java 1.7.
+     */
+<span class="fc" id="L67">    JAVA_1_7(1.7f, &quot;1.7&quot;),</span>
+
+    /**
+     * Java 1.8.
+     */
+<span class="fc" id="L72">    JAVA_1_8(1.8f, &quot;1.8&quot;),</span>
+
+    /**
+     * Java 9 and later use a single integer for the specification version.
+     */
+<span class="fc" id="L77">    JAVA_9(9.0f, &quot;9&quot;),</span>
+<span class="fc" id="L78">    JAVA_10(10.0f, &quot;10&quot;),</span>
+<span class="fc" id="L79">    JAVA_11(11.0f, &quot;11&quot;),</span>
+<span class="fc" id="L80">    JAVA_12(12.0f, &quot;12&quot;),</span>
+<span class="fc" id="L81">    JAVA_13(13.0f, &quot;13&quot;),</span>
+<span class="fc" id="L82">    JAVA_14(14.0f, &quot;14&quot;),</span>
+<span class="fc" id="L83">    JAVA_15(15.0f, &quot;15&quot;),</span>
+<span class="fc" id="L84">    JAVA_16(16.0f, &quot;16&quot;),</span>
+<span class="fc" id="L85">    JAVA_17(17.0f, &quot;17&quot;),</span>
+<span class="fc" id="L86">    JAVA_18(18.0f, &quot;18&quot;),</span>
+<span class="fc" id="L87">    JAVA_19(19.0f, &quot;19&quot;),</span>
+<span class="fc" id="L88">    JAVA_20(20.0f, &quot;20&quot;),</span>
+<span class="fc" id="L89">    JAVA_21(21.0f, &quot;21&quot;);</span>
+
+    /**
+     * The float value.
+     */
+    private float value;
+    /**
+     * The standard name.
+     */
+    private String name;
+
+    /**
+     * Constructor.
+     *
+     * @param value  the float value
+     * @param name  the standard name, not null
+     */
+<span class="fc" id="L106">    JavaVersion(final float value, final String name) {</span>
+<span class="fc" id="L107">        this.value = value;</span>
+<span class="fc" id="L108">        this.name = name;</span>
+<span class="fc" id="L109">    }</span>
+
+    //-----------------------------------------------------------------------
+    /**
+     * &lt;p&gt;Whether this version of Java is at least the version of Java passed in.&lt;/p&gt;
+     *
+     * &lt;p&gt;For example:&lt;br /&gt;
+     *  {@code myVersion.atLeast(JavaVersion.JAVA_1_4)}&lt;p&gt;
+     *
+     * @param requiredVersion  the version to check against, not null
+     * @return true if this version is equal to or greater than the specified version
+     */
+    public boolean atLeast(final JavaVersion requiredVersion) {
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        return this.value &gt;= requiredVersion.value;</span>
+    }
+
+    /**
+     * Transforms the given string with a Java version number to the
+     * corresponding constant of this enumeration class. This method is used
+     * internally.
+     *
+     * @param nom the Java version as string
+     * @return the corresponding enumeration constant or &lt;b&gt;null&lt;/b&gt; if the
+     * version is unknown
+     */
+    // helper for static importing
+    static JavaVersion getJavaVersion(final String nom) {
+<span class="fc" id="L136">        return get(nom);</span>
+    }
+
+    /**
+     * Transforms the given string with a Java version number to the
+     * corresponding constant of this enumeration class. This method is used
+     * internally.
+     *
+     * @param nom the Java version as string
+     * @return the corresponding enumeration constant or &lt;b&gt;null&lt;/b&gt; if the
+     * version is unknown
+     */
+    static JavaVersion get(final String nom) {
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        if (nom == null) {</span>
+<span class="nc" id="L150">            return null;</span>
+        }
+<span class="fc bfc" id="L152" title="All 2 branches covered.">        if (&quot;0.9&quot;.equals(nom)) {</span>
+<span class="fc" id="L153">            return JAVA_0_9;</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">        } else if (&quot;1.1&quot;.equals(nom)) {</span>
+<span class="fc" id="L155">            return JAVA_1_1;</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">        } else if (&quot;1.2&quot;.equals(nom)) {</span>
+<span class="fc" id="L157">            return JAVA_1_2;</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        } else if (&quot;1.3&quot;.equals(nom)) {</span>
+<span class="fc" id="L159">            return JAVA_1_3;</span>
+<span class="fc bfc" id="L160" title="All 2 branches covered.">        } else if (&quot;1.4&quot;.equals(nom)) {</span>
+<span class="fc" id="L161">            return JAVA_1_4;</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        } else if (&quot;1.5&quot;.equals(nom)) {</span>
+<span class="fc" id="L163">            return JAVA_1_5;</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">        } else if (&quot;1.6&quot;.equals(nom)) {</span>
+<span class="fc" id="L165">            return JAVA_1_6;</span>
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        } else if (&quot;1.7&quot;.equals(nom)) {</span>
+<span class="fc" id="L167">            return JAVA_1_7;</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">        } else if (&quot;1.8&quot;.equals(nom)) {</span>
+<span class="fc" id="L169">            return JAVA_1_8;</span>
+        }
+
+        // From Java 9 onwards the specification version is like &quot;9&quot;, &quot;11&quot;, &quot;17&quot;, or may include patch versions like &quot;11.0.2&quot;.
+        // Try to parse the leading number and map to the nearest known JavaVersion constant.
+        try {
+            // Extract the leading numeric part (e.g. &quot;11&quot; from &quot;11.0.2&quot;)
+<span class="fc" id="L176">            String[] parts = nom.split(&quot;[._-]&quot;);</span>
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">            String first = parts.length &gt; 0 ? parts[0] : nom;</span>
+            // Some values may include extra characters; trim whitespace
+<span class="fc" id="L179">            first = first.trim();</span>
+<span class="fc" id="L180">            final float parsed = Float.parseFloat(first);</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">            if (parsed &gt;= 21.0f) {</span>
+<span class="fc" id="L182">                return JAVA_21;</span>
+<span class="pc bpc" id="L183" title="1 of 2 branches missed.">            } else if (parsed &gt;= 20.0f) {</span>
+<span class="nc" id="L184">                return JAVA_20;</span>
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">            } else if (parsed &gt;= 19.0f) {</span>
+<span class="nc" id="L186">                return JAVA_19;</span>
+<span class="pc bpc" id="L187" title="1 of 2 branches missed.">            } else if (parsed &gt;= 18.0f) {</span>
+<span class="nc" id="L188">                return JAVA_18;</span>
+<span class="pc bpc" id="L189" title="1 of 2 branches missed.">            } else if (parsed &gt;= 17.0f) {</span>
+<span class="nc" id="L190">                return JAVA_17;</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">            } else if (parsed &gt;= 16.0f) {</span>
+<span class="nc" id="L192">                return JAVA_16;</span>
+<span class="pc bpc" id="L193" title="1 of 2 branches missed.">            } else if (parsed &gt;= 15.0f) {</span>
+<span class="nc" id="L194">                return JAVA_15;</span>
+<span class="pc bpc" id="L195" title="1 of 2 branches missed.">            } else if (parsed &gt;= 14.0f) {</span>
+<span class="nc" id="L196">                return JAVA_14;</span>
+<span class="pc bpc" id="L197" title="1 of 2 branches missed.">            } else if (parsed &gt;= 13.0f) {</span>
+<span class="nc" id="L198">                return JAVA_13;</span>
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">            } else if (parsed &gt;= 12.0f) {</span>
+<span class="nc" id="L200">                return JAVA_12;</span>
+<span class="pc bpc" id="L201" title="1 of 2 branches missed.">            } else if (parsed &gt;= 11.0f) {</span>
+<span class="nc" id="L202">                return JAVA_11;</span>
+<span class="pc bpc" id="L203" title="1 of 2 branches missed.">            } else if (parsed &gt;= 10.0f) {</span>
+<span class="nc" id="L204">                return JAVA_10;</span>
+<span class="pc bpc" id="L205" title="1 of 2 branches missed.">            } else if (parsed &gt;= 9.0f) {</span>
+<span class="nc" id="L206">                return JAVA_9;</span>
+            }
+<span class="nc" id="L208">        } catch (final Exception e) {</span>
+            // fallback to null below
+<span class="fc" id="L210">        }</span>
+
+<span class="fc" id="L212">        return null;</span>
+    }
+
+    //-----------------------------------------------------------------------
+    /**
+     * &lt;p&gt;The string value is overridden to return the standard name.&lt;/p&gt;
+     *
+     * &lt;p&gt;For example, &lt;code&gt;&quot;1.5&quot;&lt;/code&gt;.&lt;/p&gt;
+     *
+     * @return the name, not null
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L225">        return name;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
