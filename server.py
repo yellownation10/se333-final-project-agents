@@ -12,6 +12,7 @@ mcp = FastMCP("SE333-TestAgent")
 
 
 def _run(cmd, cwd):
+    """Run a subprocess command and return structured output."""
     result = subprocess.run(
         cmd,
         cwd=cwd,
@@ -26,9 +27,18 @@ def _run(cmd, cwd):
     }
 
 
+# ---------------------------
+# Maven / Coverage Tools
+# ---------------------------
+
 @mcp.tool()
 def run_mvn_tests(goals: str = "clean test jacoco:report") -> dict:
-    """Run Maven tests (and JaCoCo) on the codebase."""
+    """
+    Run Maven on the codebase.
+
+    Default: `clean test jacoco:report`
+    This will run tests and (if configured) generate JaCoCo reports.
+    """
     if not CODEBASE_DIR.exists():
         return {"error": f"codebase directory not found: {CODEBASE_DIR}"}
     cmd = ["mvn"] + goals.split()
@@ -37,7 +47,11 @@ def run_mvn_tests(goals: str = "clean test jacoco:report") -> dict:
 
 @mcp.tool()
 def read_coverage() -> dict:
-    """Return overall coverage + low-coverage classes from JaCoCo."""
+    """
+    Read JaCoCo XML report and return:
+      - overall instruction coverage
+      - up to 20 lowest-covered classes (< 80%).
+    """
     report = CODEBASE_DIR / "target" / "site" / "jacoco" / "jacoco.xml"
     if not report.exists():
         return {"error": f"JaCoCo report not found at {report}. Run run_mvn_tests first."}
@@ -49,7 +63,10 @@ def read_coverage() -> dict:
     for c in root.findall(".//counter[@type='INSTRUCTION']"):
         total_missed += int(c.attrib.get("missed", 0))
         total_covered += int(c.attrib.get("covered", 0))
-    overall = 0.0 if total_missed + total_covered == 0 else 100.0 * total_covered / (total_missed + total_covered)
+
+    overall = 0.0 if (total_missed + total_covered) == 0 else (
+        100.0 * total_covered / (total_missed + total_covered)
+    )
 
     gaps = []
     for cls in root.findall(".//class"):
@@ -61,17 +78,34 @@ def read_coverage() -> dict:
         total = missed + covered
         pct = 0.0 if total == 0 else 100.0 * covered / total
         if pct < 80.0:
-            gaps.append({"name": cls.attrib.get("name"), "coverage": round(pct, 2)})
+            gaps.append(
+                {
+                    "name": cls.attrib.get("name"),
+                    "coverage": round(pct, 2),
+                }
+            )
 
     return {
         "overall_instruction_coverage": round(overall, 2),
-        "low_coverage_classes": sorted(gaps, key=lambda g: g["coverage"])[:20],
+        "low_coverage_classes": sorted(
+            gaps,
+            key=lambda g: g["coverage"],
+        )[:20],
     }
 
 
+# ---------------------------
+# Test Generation
+# ---------------------------
+
 @mcp.tool()
 def generate_test_skeleton(fqcn: str) -> dict:
-    """Create/append a JUnit test skeleton for a fully-qualified class."""
+    """
+    Create/append a JUnit test skeleton for a fully-qualified class name.
+
+    Example: org.apache.commons.lang3.StringUtils
+    Generates: src/test/java/org/apache/commons/lang3/StringUtilsAgentTest.java
+    """
     parts = fqcn.split(".")
     if len(parts) < 2:
         return {"error": "Use fully-qualified name like 'org.example.MyClass'."}
@@ -104,7 +138,7 @@ public class {class_name}AgentTest {{
 
     @Test
     public void basicBehavior_shouldNotThrow() {{
-        // TODO: add real assertions using {class_name}
+        // TODO: replace with real assertions that exercise {class_name}
         assertTrue(true);
     }}
 }}
@@ -116,65 +150,123 @@ public class {class_name}AgentTest {{
     return {"status": status, "test_file": str(test_file.relative_to(BASE_DIR))}
 
 
-@mcp.tool()
-def git_status() -> str:
-    return _run(["git", "status", "-sb"], cwd=BASE_DIR)["stdout"]
-
-
-@mcp.tool()
-def git_add_all() -> str:
-    out = _run(["git", "add", "-A"], cwd=BASE_DIR)
-    return out["stdout"] or out["stderr"] or "Staged all changes."
-
+# ---------------------------
+# Git Tools
+# ---------------------------
 
 @mcp.tool()
-def git_commit(message: str) -> str:
-    return _run(["git", "commit", "-m", message], cwd=BASE_DIR)["stdout"]
+def git_status() -> dict:
+    """Return short git status."""
+    return _run(["git", "status", "-sb"], cwd=BASE_DIR)
 
 
 @mcp.tool()
-def git_push(remote: str = "origin") -> str:
-    return _run(["git", "push", remote, "HEAD"], cwd=BASE_DIR)["stdout"]
+def git_add_all() -> dict:
+    """Stage all changes."""
+    return _run(["git", "add", "-A"], cwd=BASE_DIR)
+
+
+@mcp.tool()
+def git_commit(message: str) -> dict:
+    """Commit staged changes with the given message."""
+    return _run(["git", "commit", "-m", message], cwd=BASE_DIR)
+
+
+@mcp.tool()
+def git_push(remote: str = "origin") -> dict:
+    """Push current HEAD to the given remote."""
+    return _run(["git", "push", remote, "HEAD"], cwd=BASE_DIR)
 
 
 @mcp.tool()
 def git_pull_request(base: str = "main", title: str = "SE333 MCP Agent PR", body: str = "") -> str:
-    """Return a PR-style description (no real network calls)."""
+    """
+    Return a PR-style description (no real GitHub API calls).
+    The agent / user can paste this into a real PR.
+    """
     if not body:
         body = "Automated PR description from SE333 MCP testing agent."
     return f"# {title}\n\nBase: `{base}`\n\n{body}\n"
 
 
+# ---------------------------
+# Creative / Phase 5 Tools
+# ---------------------------
+
 @mcp.tool()
-def suggest_boundary_tests(param_name: str, min_value: int, max_value: int) -> str:
-    vals = [min_value - 1, min_value, min_value + 1,
-            max_value - 1, max_value, max_value + 1]
-    return f"Suggested boundary test values for {param_name}: " + ", ".join(str(v) for v in vals)
+def suggest_boundary_tests(target: str) -> dict:
+    """
+    Suggest generic boundary-value and edge-case tests for a given target.
+
+    `target` can be a method or class description, e.g.:
+      "StringUtils.substring(String, int, int)"
+
+    Returns common boundary ideas the agent can turn into concrete JUnit tests.
+    """
+    suggestions = [
+        "Null input (if allowed by API)",
+        "Empty input value",
+        "Minimum valid value / index",
+        "Maximum valid value / index",
+        "Just below minimum (expect failure or special handling)",
+        "Just above maximum (expect failure or special handling)",
+        "Unicode / non-ASCII characters (if strings involved)",
+        "Very large inputs (length / size / magnitude)",
+    ]
+    return {
+        "target": target,
+        "strategy": "boundary value & equivalence class analysis",
+        "suggestions": suggestions,
+    }
 
 
 @mcp.tool()
-def review_class(fqcn: str) -> str:
+def review_class(fqcn: str) -> dict:
+    """
+    Perform a lightweight static review of a Java class by FQCN.
+
+    Example:
+      org.apache.commons.lang3.StringUtils
+    """
     parts = fqcn.split(".")
     class_name = parts[-1]
     package_path = Path(*parts[:-1])
     main_file = CODEBASE_DIR / "src" / "main" / "java" / package_path / f"{class_name}.java"
     if not main_file.exists():
-        return f"Main class not found: {main_file}"
+        return {"error": f"Main class not found: {main_file}"}
 
     text = main_file.read_text(encoding="utf-8", errors="ignore")
     lines = text.splitlines()
     issues = []
+
     if len(lines) > 400:
-        issues.append(f"- Large file ({len(lines)} lines); consider refactoring.")
+        issues.append(f"- Large file ({len(lines)} lines); consider refactoring or focused tests around complex areas.")
     if "TODO" in text:
-        issues.append("- Contains TODOs; ensure they are resolved or documented.")
+        issues.append("- Contains TODOs; ensure behavior is clarified and tested.")
     if "System.out.println" in text:
-        issues.append("- Uses System.out.println; prefer a logger.")
+        issues.append("- Uses System.out.println; prefer a logger (and test logging behavior if relevant).")
+    if "null" in text:
+        issues.append("- Explicit null handling detected; add tests for null and non-null variations.")
+    if "if (" in text and "else" not in text:
+        issues.append("- Conditionals without else branches; add tests that hit both true/false paths where applicable.")
 
     if not issues:
-        return f"No simple issues detected in {fqcn}."
-    return "Quick review for " + fqcn + ":\n" + "\n".join(issues)
+        return {
+            "fqcn": fqcn,
+            "message": "No obvious simple issues detected; focus on edge cases and public API behavior.",
+        }
 
+    return {
+        "fqcn": fqcn,
+        "findings": issues,
+        "note": "Use these hints to prioritize targeted unit tests.",
+    }
+
+
+# ---------------------------
+# Entry Point
+# ---------------------------
 
 if __name__ == "__main__":
+    # Run as an SSE-based MCP server for VS Code / compatible clients.
     mcp.run(transport="sse")
