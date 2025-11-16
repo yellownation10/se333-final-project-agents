@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.apache.commons.lang3.HashSetvBitSetTest" time="0.445" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.apache.commons.lang3.HashSetvBitSetTest" time="0.339" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/test-classes:/Users/iphoness/Desktop/se333-final-project/codebase/target/classes:/Users/iphoness/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/iphoness/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/iphoness/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/iphoness/.m2/repository/org/easymock/easymock/5.2.0/easymock-5.2.0.jar:/Users/iphoness/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
     <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="doesnotwork" value="It works!"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="America/Chicago"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="java.vm.specification.version" value="25"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251109202207186_3.jar /Users/iphoness/Desktop/se333-final-project/codebase/target/surefire 2025-11-09T20-22-07_127-jvmRun1 surefire-20251109202207186_1tmp surefire_0-20251109202207186_2tmp"/>
+    <property name="sun.java.command" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116111149257_3.jar /Users/iphoness/Desktop/se333-final-project/codebase/target/surefire 2025-11-16T11-11-49_206-jvmRun1 surefire-20251116111149257_1tmp surefire_0-20251116111149257_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/test-classes:/Users/iphoness/Desktop/se333-final-project/codebase/target/classes:/Users/iphoness/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/iphoness/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/iphoness/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/iphoness/.m2/repository/org/easymock/easymock/5.2.0/easymock-5.2.0.jar:/Users/iphoness/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
@@ -22,7 +24,6 @@
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2025-09-16"/>
     <property name="java.home" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home"/>
-    <property name="jacoco.skip" value="false"/>
     <property name="file.separator" value="/"/>
     <property name="basedir" value="/Users/iphoness/Desktop/se333-final-project/codebase"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -30,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251109202207186_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116111149257_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="25"/>
@@ -60,26 +61,26 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testTimesExtractOrBitset" classname="org.apache.commons.lang3.HashSetvBitSetTest" time="0.227">
-    <system-out><![CDATA[Ratio=89% array=100 count=1 extract=3650917 bitset=3277208
-Ratio=47% array=100 count=10 extract=6683042 bitset=3164167
-Ratio=14% array=100 count=50 extract=20086834 bitset=2912208
-Ratio=10% array=100 count=100 extract=26780291 bitset=2701041
-Ratio=327% array=1000 count=10 extract=2948042 bitset=9654958
-Ratio=34% array=1000 count=100 extract=12092500 bitset=4161291
-Ratio=7% array=1000 count=500 extract=40347334 bitset=3199875
-Ratio=0% array=1000 count=1000 extract=60109625 bitset=319042
+  <testcase name="testTimesExtractOrBitset" classname="org.apache.commons.lang3.HashSetvBitSetTest" time="0.184">
+    <system-out><![CDATA[Ratio=83% array=100 count=1 extract=2366000 bitset=1983292
+Ratio=47% array=100 count=10 extract=4234708 bitset=2027333
+Ratio=15% array=100 count=50 extract=12164500 bitset=1924792
+Ratio=16% array=100 count=100 extract=11028042 bitset=1853000
+Ratio=76% array=1000 count=10 extract=4056459 bitset=3118791
+Ratio=18% array=1000 count=100 extract=14864708 bitset=2728666
+Ratio=3% array=1000 count=500 extract=62575458 bitset=2483709
+Ratio=4% array=1000 count=1000 extract=47177583 bitset=1918792
 ]]></system-out>
   </testcase>
-  <testcase name="testTimes" classname="org.apache.commons.lang3.HashSetvBitSetTest" time="0.184">
-    <system-out><![CDATA[Ratio=353% count=0 hash=125417 bits=442792
-Ratio=42% count=5 hash=916125 bits=385791
-Ratio=44% count=10 hash=1430750 bits=632333
-Ratio=33% count=200 hash=21061958 bits=6961875
-Ratio=111% count=50 hash=1608167 bits=1799542
-Ratio=83% count=100 hash=3072375 bits=2574667
-Ratio=44% count=1000 hash=34173208 bits=15179208
-Ratio=48% count=2000 hash=62884959 bits=30311584
+  <testcase name="testTimes" classname="org.apache.commons.lang3.HashSetvBitSetTest" time="0.155">
+    <system-out><![CDATA[Ratio=391% count=0 hash=82209 bits=322250
+Ratio=68% count=5 hash=370084 bits=254042
+Ratio=75% count=10 hash=596375 bits=448750
+Ratio=60% count=200 hash=11312875 bits=6790834
+Ratio=61% count=50 hash=2783750 bits=1720958
+Ratio=62% count=100 hash=5394792 bits=3393375
+Ratio=32% count=1000 hash=32959375 bits=10694292
+Ratio=39% count=2000 hash=53700625 bits=21343542
 ]]></system-out>
   </testcase>
 </testsuite>

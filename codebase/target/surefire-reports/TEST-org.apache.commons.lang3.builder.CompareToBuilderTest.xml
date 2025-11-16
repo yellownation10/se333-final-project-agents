@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.002" tests="48" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.001" tests="48" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251109202207186_3.jar /Users/iphoness/Desktop/se333-final-project/codebase/target/surefire 2025-11-09T20-22-07_127-jvmRun1 surefire-20251109202207186_1tmp surefire_0-20251109202207186_2tmp"/>
+    <property name="sun.java.command" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116111149257_3.jar /Users/iphoness/Desktop/se333-final-project/codebase/target/surefire 2025-11-16T11-11-49_206-jvmRun1 surefire-20251116111149257_1tmp surefire_0-20251116111149257_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/test-classes:/Users/iphoness/Desktop/se333-final-project/codebase/target/classes:/Users/iphoness/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/iphoness/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/iphoness/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/iphoness/.m2/repository/org/easymock/easymock/5.2.0/easymock-5.2.0.jar:/Users/iphoness/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
@@ -24,7 +24,6 @@
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.version.date" value="2025-09-16"/>
     <property name="java.home" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home"/>
-    <property name="jacoco.skip" value="false"/>
     <property name="file.separator" value="/"/>
     <property name="basedir" value="/Users/iphoness/Desktop/se333-final-project/codebase"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
@@ -32,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251109202207186_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116111149257_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="25"/>
@@ -97,7 +96,7 @@
   <testcase name="testBooleanArrayHiddenByObject" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>
   <testcase name="testIntArrayHiddenByObject" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>
   <testcase name="testLongArray" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>
-  <testcase name="testReflectionHierarchyCompareTransients" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>
+  <testcase name="testReflectionHierarchyCompareTransients" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.001"/>
   <testcase name="testShortArray" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>
   <testcase name="testMultiLongArray" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>
   <testcase name="testFloatArrayHiddenByObject" classname="org.apache.commons.lang3.builder.CompareToBuilderTest" time="0.0"/>

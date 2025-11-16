@@ -70,6 +70,7 @@ org/apache/commons/lang3/builder/MultiLineToStringStyleTest.class
 org/apache/commons/lang3/reflect/FieldUtilsTest.class
 org/apache/commons/lang3/ClassUtilsTest$4Named.class
 org/apache/commons/lang3/text/StrBuilderAppendInsertTest.class
+org/apache/commons/lang3/text/translate/JavaUnicodeEscaperAgentTest.class
 org/apache/commons/lang3/StringUtilsSubstringTest.class
 org/apache/commons/lang3/CharUtilsPerfRun.class
 org/apache/commons/lang3/ClassUtilsTest$8.class
@@ -153,6 +154,7 @@ org/apache/commons/lang3/text/WordUtilsTest.class
 org/apache/commons/lang3/tuple/TripleTest.class
 org/apache/commons/lang3/RangeTest$2.class
 org/apache/commons/lang3/ArrayUtilsTest.class
+org/apache/commons/lang3/builder/ToStringBuilderAgentTest.class
 org/apache/commons/lang3/mutable/MutableIntTest.class
 org/apache/commons/lang3/time/FastDatePrinterAgentTest.class
 org/apache/commons/lang3/StringUtilsTrimEmptyTest.class
@@ -289,6 +291,7 @@ org/apache/commons/lang3/event/EventUtilsTest$EventCounter.class
 org/apache/commons/lang3/event/EventUtilsTest$MultipleEventSource.class
 org/apache/commons/lang3/reflect/testbed/StaticContainerChild.class
 org/apache/commons/lang3/time/FastDateFormat_PrinterTest.class
+org/apache/commons/lang3/builder/ToStringStyleAgentTest.class
 org/apache/commons/lang3/ObjectUtilsTest$UncloneableString.class
 org/apache/commons/lang3/builder/HashCodeBuilderTest$ReflectionTestCycleA.class
 org/apache/commons/lang3/reflect/TypeUtilsTest$This.class
