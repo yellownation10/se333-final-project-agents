@@ -617,20 +617,20 @@ public abstract class ToStringStyle implements Serializable {
                 }
 <span class="fc" id="L618">                buffer.append(items[i]);</span>
             }
-<span class="nc" id="L620">        } catch (RuntimeException ex) {</span>
+<span class="fc" id="L620">        } catch (RuntimeException ex) {</span>
             // toArray() or the subsequent iteration can fail for some
             // concurrent implementations (LinkedList.toArray may hit AIOOBE)
             // Try a defensive iteration; if that also fails, fall back to
             // a compact stable representation that will not throw.
             try {
-<span class="nc" id="L626">                boolean first = true;</span>
-<span class="nc bnc" id="L627" title="All 2 branches missed.">                for (Object item : coll) {</span>
-<span class="nc bnc" id="L628" title="All 2 branches missed.">                    if (!first) {</span>
-<span class="nc" id="L629">                        buffer.append(&quot;, &quot;);</span>
+<span class="fc" id="L626">                boolean first = true;</span>
+<span class="fc bfc" id="L627" title="All 2 branches covered.">                for (Object item : coll) {</span>
+<span class="fc bfc" id="L628" title="All 2 branches covered.">                    if (!first) {</span>
+<span class="fc" id="L629">                        buffer.append(&quot;, &quot;);</span>
                     }
-<span class="nc" id="L631">                    buffer.append(item);</span>
-<span class="nc" id="L632">                    first = false;</span>
-<span class="nc" id="L633">                }</span>
+<span class="fc" id="L631">                    buffer.append(item);</span>
+<span class="fc" id="L632">                    first = false;</span>
+<span class="fc" id="L633">                }</span>
 <span class="nc" id="L634">            } catch (RuntimeException ex2) {</span>
                 // Last resort: append a stable, non-iterating summary.
 <span class="nc" id="L636">                buffer.append(coll.getClass().getName());</span>
@@ -642,7 +642,7 @@ public abstract class ToStringStyle implements Serializable {
 <span class="nc" id="L642">                } catch (RuntimeException ignore) {</span>
 <span class="nc" id="L643">                    buffer.append(&quot;?&quot;);</span>
 <span class="nc" id="L644">                }</span>
-<span class="nc" id="L645">            }</span>
+<span class="fc" id="L645">            }</span>
 <span class="fc" id="L646">        }</span>
 <span class="fc" id="L647">        buffer.append(']');</span>
 <span class="fc" id="L648">    }</span>

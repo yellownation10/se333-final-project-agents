@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0" tests="55" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.apache.commons.lang3.text.StrTokenizerTest" time="0.02" tests="55" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/test-classes:/Users/iphoness/Desktop/se333-final-project/codebase/target/classes:/Users/iphoness/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/iphoness/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/iphoness/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/iphoness/.m2/repository/org/easymock/easymock/5.2.0/easymock-5.2.0.jar:/Users/iphoness/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
     <property name="java.vm.vendor" value="Homebrew"/>
-    <property name="doesnotwork" value="It works!"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
-    <property name="user.timezone" value="America/Chicago"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="java.vm.specification.version" value="25"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116111149257_3.jar /Users/iphoness/Desktop/se333-final-project/codebase/target/surefire 2025-11-16T11-11-49_206-jvmRun1 surefire-20251116111149257_1tmp surefire_0-20251116111149257_2tmp"/>
+    <property name="sun.java.command" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116205741510_3.jar /Users/iphoness/Desktop/se333-final-project/codebase/target/surefire 2025-11-16T20-57-41_444-jvmRun1 surefire-20251116205741510_1tmp surefire_0-20251116205741510_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/test-classes:/Users/iphoness/Desktop/se333-final-project/codebase/target/classes:/Users/iphoness/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/iphoness/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/iphoness/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/iphoness/.m2/repository/org/easymock/easymock/5.2.0/easymock-5.2.0.jar:/Users/iphoness/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
@@ -31,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116111149257_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/iphoness/Desktop/se333-final-project/codebase/target/surefire/surefirebooter-20251116205741510_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="25"/>
@@ -61,7 +59,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testCSVSimple" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testCSVSimple" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.002"/>
   <testcase name="testBasicDelim1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicDelim2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicEmpty1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
@@ -73,11 +71,11 @@
   <testcase name="testReset" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testReset_charArray" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testToString" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="testTokenizeSubclassOutputChange" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testTokenizeSubclassOutputChange" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="testListArray" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="testBasicQuoted1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testBasicQuoted1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="testBasicQuoted2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="testBasicQuoted3" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testBasicQuoted3" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="testBasicQuoted4" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicQuoted5" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicQuoted6" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
@@ -87,20 +85,20 @@
   <testcase name="testTSVEmpty" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testConstructor_String" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testCloneNull" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="test1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="test2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="test1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.004"/>
+  <testcase name="test2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="test3" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="test4" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="test5" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="test6" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="test6" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="test7" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="test8" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="testConstructor_String_char" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testConstructor_String_char" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="testTokenizeSubclassInputChange" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testCSVEmpty" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testConstructor_charArray" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testConstructor_charArray_char_char" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="testCSVSimpleNeedsTrim" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testCSVSimpleNeedsTrim" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="testBasicIgnoreTrimmed1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicIgnoreTrimmed2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicIgnoreTrimmed3" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
@@ -114,6 +112,6 @@
   <testcase name="testGetContent" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testCloneReset" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
   <testcase name="testBasicTrimmed1" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
-  <testcase name="testBasicTrimmed2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
+  <testcase name="testBasicTrimmed2" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.001"/>
   <testcase name="testChaining" classname="org.apache.commons.lang3.text.StrTokenizerTest" time="0.0"/>
 </testsuite>
